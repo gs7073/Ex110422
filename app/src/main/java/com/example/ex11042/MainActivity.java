@@ -88,8 +88,10 @@ public class MainActivity extends AppCompatActivity {
                 builder.setNegativeButton("Update", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(MainActivity.this, "We will do update next!", Toast.LENGTH_SHORT).show();
-                        // Next step: Open EditActivity
+                        // Open EditActivity and pass the ID of the chosen expense
+                        Intent intent = new Intent(MainActivity.this, EditActivity.class);
+                        intent.putExtra("id", expenseId);
+                        startActivity(intent);
                     }
                 });
 
