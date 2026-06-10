@@ -150,4 +150,34 @@ public class MainActivity extends AppCompatActivity {
 
         tvTotal.setText("Total: " + totalSum + " ₪");
     }
+    /**
+     * Creates the options menu in the top bar.
+     */
+    @Override
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    /**
+     * Handles clicks on the menu items.
+     */
+    @Override
+    public boolean onOptionsItemSelected(android.view.MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.menu_search) {
+            // Open Search Screen
+            android.content.Intent intent = new android.content.Intent(this, SearchActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.menu_credits) {
+            // Open Credits Screen
+            android.content.Intent intent = new android.content.Intent(this, CreditsActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }
